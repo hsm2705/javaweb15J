@@ -9,4 +9,12 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  <context-param>
+  	<param-name>logoName</param-name>
+  	<param-value>Java Green Company</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>homeAddress</param-name>
+  	<param-value>http://192.168.50.98:9090/javaweb/</param-value>
+  </context-param>
 </web-app>

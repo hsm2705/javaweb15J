@@ -1,4 +1,4 @@
-package BoardController;
+package board;
 
 public class BoardController {
 
