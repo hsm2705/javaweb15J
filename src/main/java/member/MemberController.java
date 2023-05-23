@@ -57,7 +57,7 @@ public class MemberController extends HttpServlet {
 			command.execute(request, response);
 			viewPage += "/memberNickCheck.jsp";
 		}
-		else if(level > 4) {	// 비회원인경우는 초기화면으로 보내버린다.
+		else if(level > 4) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/");
 			dispatcher.forward(request, response);
 		}
@@ -101,11 +101,7 @@ public class MemberController extends HttpServlet {
 			command = new MemberDeleteAskCommand();
 			command.execute(request, response);
 			viewPage = "/include/message.jsp";
-		}
-		else if(com.equals("/MemberMessageInput")) {
-			command = new MemberMessageInputCommand();
-			command.execute(request, response);
-			return;
+		
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

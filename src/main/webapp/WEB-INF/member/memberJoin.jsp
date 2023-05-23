@@ -9,7 +9,6 @@
   <title>memberJoin.jsp</title>
   <jsp:include page="/include/bs4.jsp" />
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-  <script src="${ctp}/js/woo.js"></script>
   <script>
     'use strict';
     // 아이디와 닉네임 중복버튼을 클릭했는지의 여부를 확인하기위한 변수(버튼 클릭후에는 내용 수정처리 못하도록 처리)
@@ -18,28 +17,29 @@
     
     function fCheck() {
     	// 유효성 검사.....
+    	// 아이디,닉네임,성명,이메일,홈페이지,전화번호,비밀번호 등등....
     	
     	let regMid = /^[a-zA-Z0-9_]{4,20}$/;
     	let regPwd = /(?=.*[0-9a-zA-Z]).{4,20}$/;
-      let regName = /^[가-힣a-zA-Z]+$/;
-      let regNickName = /^[가-힣]+$/;
+	    let regName = /^[가-힣a-zA-Z]+$/;
+	    let regNickName = /^[가-힣]+$/;
     	let regTel = /\d{2,3}-\d{3,4}-\d{4}$/g;
-      let regEmail =/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
+	    let regEmail =/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
     	
     	let mid = myform.mid.value.trim();
     	let pwd = myform.pwd.value;
     	let name = myform.name.value;
     	let nickName = myform.nickName.value;
-    	let email1 = myform.email1.value.trim();
-    	let email2 = myform.email2.value;
-    	let email = email1 + "@" + email2;
     	let tel1 = myform.tel1.value;
     	let tel2 = myform.tel2.value.trim();
     	let tel3 = myform.tel3.value.trim();
     	let tel = tel1 + "-" + tel2 + "-" + tel3;
+    	let email1 = myform.email1.value.trim();
+    	let email2 = myform.email2.value;
+    	let email = email1 + "@" + email2;
     	
     	let submitFlag = 0;		// 모든 체크가 정상으로 종료되게되면 submitFlag는 1로 변경처리될수 있게 한다.
-    	
+
     	// 앞의 정규식으로 정의된 부분에 대한 유효성체크
     	if(!regMid.test(mid)) {
     		alert("아이디는 4~20자리의 영문 소/대문자와 숫자, 언더바(_)만 사용가능합니다.");
@@ -66,10 +66,9 @@
         myform.email1.focus();
         return false;
       }
-        else {
-	    	  submitFlag = 1;
-	      }
-      }
+      else {
+	    	submitFlag = 1;
+	    }
     	
     	if(tel2 != "" && tel3 != "") {
     	  if(!regTel.test(tel)) {
@@ -160,23 +159,27 @@
     <h2>회 원 가 입</h2>
     <br/>
     <div class="form-group">
-      <label for="mid">아이디 : &nbsp; &nbsp;<input type="button" value="아이디 중복체크" id="midBtn" class="btn btn-secondary btn-sm" onclick="idCheck()"/></label>
+      <label for="mid">아이디 &nbsp; &nbsp; &nbsp;<input type="button" value="아이디 중복체크" id="midBtn" class="btn btn-secondary btn-sm" onclick="idCheck()"/></label>
       <input type="text" class="form-control" name="mid" id="mid" placeholder="아이디를 입력하세요." required autofocus/>
     </div>
+    
     <div class="form-group">
-      <label for="pwd">비밀번호 :</label>
+      <label for="pwd">비밀번호 &nbsp; &nbsp;</label>
       <input type="password" class="form-control" id="pwd" placeholder="비밀번호를 입력하세요." name="pwd" required />
     </div>
+    
     <div class="form-group">
       <label for="name">성명 :</label>
       <input type="text" class="form-control" id="name" placeholder="성명을 입력하세요." name="name" required />
     </div>
-    <div class="form-group">
-      <label for="nickName">닉네임(한글) : &nbsp; &nbsp;<input type="button" id="nickNameBtn" value="닉네임 중복체크" class="btn btn-secondary btn-sm" onclick="nickCheck()"/></label>
+    
+		<div class="form-group">
+      <label for="nickName">닉네임(한글) &nbsp; &nbsp;<input type="button" id="nickNameBtn" value="닉네임 중복체크" class="btn btn-secondary btn-sm" onclick="nickCheck()"/></label>
       <input type="text" class="form-control" id="nickName" placeholder="별명(한글)을 입력하세요." name="nickName" required />
     </div>
+    
     <div class="form-group">
-      <label for="email1">Email address:</label>
+      <label for="email1">이메일 주소 &nbsp; &nbsp;</label>
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="Email을 입력하세요." id="email1" name="email1" required />
           <div class="input-group-append">
@@ -191,9 +194,10 @@
           </div>
         </div>
     </div>
+    
     <div class="form-group">
       <div class="form-check-inline">
-        <span class="input-group-text">성별 :</span> &nbsp; &nbsp;
+        <span class="input-group-text">성별 </span> &nbsp; &nbsp;
         <label class="form-check-label">
           <input type="radio" class="form-check-input" name="gender" value="남자" checked>남자
         </label>
@@ -204,14 +208,16 @@
         </label>
       </div>
     </div>
+    
     <div class="form-group">
       <label for="birthday">생일</label>
       <input type="date" name="birthday" value="<%=java.time.LocalDate.now() %>" class="form-control"/>
     </div>
+    
     <div class="form-group">
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text">전화번호 :</span> &nbsp;&nbsp;
+          <span class="input-group-text">전화번호 </span> &nbsp;&nbsp;
             <select name="tel1" class="custom-select">
               <option value="010" selected>010</option>
               <option value="02">서울</option>
@@ -230,6 +236,7 @@
         <input type="text" name="tel3" size=4 maxlength=4 class="form-control"/>
       </div>
     </div>
+    
     <div class="form-group">
       <label for="address">주소</label>
       <div class="input-group mb-1">
@@ -246,11 +253,29 @@
         </div>
       </div>
     </div>
+    
+    <div class="form-group">
+      <div class="form-check-inline">
+        <span class="input-group-text">정보공개</span>  &nbsp; &nbsp;
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="userInfor" value="공개" checked/>공개
+        </label>
+      </div>
+      
+      <div class="form-check-inline">
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="userInfor" value="비공개"/>비공개
+        </label>
+      </div>
+      
+    </div>
+    
     <button type="button" class="btn btn-secondary" onclick="fCheck()">회원가입</button> &nbsp;
     <button type="reset" class="btn btn-secondary">다시작성</button> &nbsp;
     <button type="button" class="btn btn-secondary" onclick="location.href='${ctp}/MemberLogin.mem';">돌아가기</button>
-    <input type="hidden" name="email" />
+    
     <input type="hidden" name="tel" />
+    <input type="hidden" name="email" />
     <input type="hidden" name="address" />
   </form>
 </div>

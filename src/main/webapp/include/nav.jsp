@@ -26,13 +26,24 @@
       <a class="nav-link" href="${pageContext.request.contextPath}/InforUse.in">도서관이용안내</a>
     </li>
     <li class="nav-item">
+      <a class="nav-link" href="${pageContext.request.contextPath}/RentalList.re">도서목록</a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link" href="${pageContext.request.contextPath}/RentalList.re">대출현황</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="${pageContext.request.contextPath}/BookApp.bo">도서신청</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="${pageContext.request.contextPath}/BoardList.bo">게시판</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="${pageContext.request.contextPath}/MemberLogin.mem">로그인</a>
-    </li>
+    <li class="nav-item">
+    	<c:if test="${level > 2}"><a class="nav-link" href="${pageContext.request.contextPath}/MemberLogin.mem">로그인</a></c:if>
+      <c:if test="${level <= 2}"><a class="nav-link" href="${pageContext.request.contextPath}/MemberLogout.mem">로그아웃</a></c:if>
+    </li>  
+   	<li class="nav-item">
+      <c:if test="${level > 2}"><a class="nav-link" href="${pageContext.request.contextPath}/MemberJoin.mem">회원가입</a></c:if>
+    </li>  
   </ul>
 </nav>
