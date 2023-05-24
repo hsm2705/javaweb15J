@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:set var="qwe" value="${pageContext.request.contextPath}"/>
+<c:set var="ctp" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +40,7 @@
   </c:if>
   <c:if test="${res != 1}">
     <h4><font color="blue"><b>${nickName}</b></font>닉네임은 이미 사용중인 닉네임입니다.</h4>
-    <form name="childForm" method="post" action="${qwe}/MemberNickCheck.mem">
+    <form name="childForm" method="post" action="${ctp}/MemberNickCheck.mem">
     	<p>
     	  <input type="text" name="nickName"/>
     	  <input type="button" value="닉네임재검색" onclick="nickCheck()"/>

@@ -35,7 +35,7 @@
       <a class="nav-link" href="${pageContext.request.contextPath}/BookApp.bo">도서신청</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="${pageContext.request.contextPath}/BoardList.bo">게시판</a>
+      <a class="nav-link" href="${ctp}/BoardList.bo">게시판</a>
     </li>
     <li class="nav-item">
     <li class="nav-item">

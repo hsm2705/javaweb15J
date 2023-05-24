@@ -15,12 +15,10 @@ public class MemberJoinOkCommand implements MemberInterface {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String realPath = request.getServletContext().getRealPath("/images/member");
 		String encoding = "UTF-8";
 
-		MultipartRequest multipartRequest = new MultipartRequest(request, realPath, encoding);
+		MultipartRequest multipartRequest = new MultipartRequest(request, encoding);
 		
-		// 나머지 값들을 모두 multipartRequest객체를 통해서 받아온다.
 		String mid = multipartRequest.getParameter("mid")==null ? "" : multipartRequest.getParameter("mid");
 		String pwd = multipartRequest.getParameter("pwd")==null ? "" : multipartRequest.getParameter("pwd");
 		String name = multipartRequest.getParameter("name")==null ? "" : multipartRequest.getParameter("name");

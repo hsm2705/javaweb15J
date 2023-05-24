@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<c:set var="qwe" value="${pageContext.request.contextPath}"/>
+<c:set var="ctp" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +26,7 @@
     	if(chat.trim() != "") {
     		$.ajax({
     			type : "post",
-    			url  : "${qwe}/MemberMessageInput.mem",
+    			url  : "${ctp}/MemberMessageInput.mem",
     			data : {chat : chat},
     			error:function() {
     				alert("전송오류!!");
@@ -55,7 +55,7 @@
   </div>
   <hr id="memberInfo4" />
     <div id="memberInfo2">
-    <p>오늘의 추천도서<br/><img src="${qwe}/images/books/${photo}" width="200px"/></p>
+    <p>오늘의 추천도서<br/><img src="${ctp}/images/books/${photo}" width="200px"/></p>
   </div>
   
   <!-- <div id="memberInfo3"> -->
@@ -64,7 +64,7 @@
 	  <p>책 대여 횟수 : <span class="viewCheck">${rentalCnt}</span> 건</p>
 	  <p>게시판에 올린글수 : <span class="viewCheck">
 	                       <c:if test="${boardCnt == 0}">${boardCnt}</c:if>
-	                       <c:if test="${boardCnt != 0}"><a href="${qwe}/BoardSearchMember.bo">${boardCnt}</a></c:if>
+	                       <c:if test="${boardCnt != 0}"><a href="${ctp}/BoardSearchMember.bo">${boardCnt}</a></c:if>
 	                     </span>건</p>
   </div>
 </div>

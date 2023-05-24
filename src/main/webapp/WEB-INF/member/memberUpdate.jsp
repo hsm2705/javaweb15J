@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<c:set var="qwe" value="${pageContext.request.contextPath}"/>
+<c:set var="ctp" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +10,7 @@
   <title>memberUpdate.jsp</title>
   <jsp:include page="/include/bs4.jsp" />
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-  <script src="${qwe}/js/woo.js"></script>
+  <script src="${ctp}/js/woo.js"></script>
   <script>
     'use strict';
  // 아이디와 닉네임 중복버튼을 클릭했는지의 여부를 확인하기위한 변수(버튼 클릭후에는 내용 수정처리 못하도록 처리)
@@ -110,7 +110,7 @@
     // 닉네임 중복체크
     function nickCheck() {
     	let nickName = myform.nickName.value;
-    	let url = "${qwe}/MemberNickCheck.mem?nickName="+nickName;
+    	let url = "${ctp}/MemberNickCheck.mem?nickName="+nickName;
     	
     	if(nickName.trim() == "") {
     		alert("닉네임을 입력하세요!");
@@ -129,7 +129,7 @@
 <jsp:include page="/include/header.jsp" />
 <p><br/></p>
 <div class="container">
-  <form name="myform" method="post" action="${qwe}/MemberUpdateOk.mem" class="was-validated" enctype="multipart/form-data">
+  <form name="myform" method="post" action="${ctp}/MemberUpdateOk.mem" class="was-validated" enctype="multipart/form-data">
     
     <h2>회 원 정 보 수 정</h2>
     <br/>
@@ -240,7 +240,7 @@
     
     <button type="button" class="btn btn-secondary" onclick="fCheck()">회원정보수정</button> &nbsp;
     <button type="reset" class="btn btn-secondary">다시작성</button> &nbsp;
-    <button type="button" class="btn btn-secondary" onclick="location.href='${qwe}/MemberMain.mem';">돌아가기</button>
+    <button type="button" class="btn btn-secondary" onclick="location.href='${ctp}/MemberMain.mem';">돌아가기</button>
     <input type="hidden" name="tel" />
     <input type="hidden" name="email" />
     <input type="hidden" name="address" />

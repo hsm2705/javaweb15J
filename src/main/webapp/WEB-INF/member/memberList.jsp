@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:set var="qwe" value="${pageContext.request.contextPath}"/>
+<c:set var="ctp" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,11 +11,11 @@
   <script>
     'use strict';
     
-    if(${pag} > ${totPage}) location.href="${qwe}/MemberList.mem?pag=${totPage}&pageSize=${pageSize}";
+    if(${pag} > ${totPage}) location.href="${ctp}/MemberList.mem?pag=${totPage}&pageSize=${pageSize}";
     
     function pageCheck() {
     	let pageSize = document.getElementById("pageSize").value;
-    	location.href = "${qwe}/MemberList.mem?pag=${pag}&pageSize="+pageSize;
+    	location.href = "${ctp}/MemberList.mem?pag=${pag}&pageSize="+pageSize;
     }
   </script>
 </head>
@@ -65,14 +65,14 @@
   <!-- 블록 페이징 처리 -->
   <div class="text-center m-4">
 	  <ul class="pagination justify-content-center pagination-sm">
-	    <c:if test="${pag > 1}"><li class="page-item"><a class="page-link text-secondary" href="${qwe}/MemberList.mem?pageSize=${pageSize}&pag=1">첫페이지</a></li></c:if>
-	    <c:if test="${curBlock > 0}"><li class="page-item"><a class="page-link text-secondary" href="${qwe}/MemberList.mem?pageSize=${pageSize}&pag=${(curBlock-1)*blockSize + 1}">이전블록</a></li></c:if>
+	    <c:if test="${pag > 1}"><li class="page-item"><a class="page-link text-secondary" href="${ctp}/MemberList.mem?pageSize=${pageSize}&pag=1">첫페이지</a></li></c:if>
+	    <c:if test="${curBlock > 0}"><li class="page-item"><a class="page-link text-secondary" href="${ctp}/MemberList.mem?pageSize=${pageSize}&pag=${(curBlock-1)*blockSize + 1}">이전블록</a></li></c:if>
 	    <c:forEach var="i" begin="${curBlock*blockSize + 1}" end="${curBlock*blockSize + blockSize}" varStatus="st">
-	      <c:if test="${i <= totPage && i == pag}"><li class="page-item active"><a class="page-link text-white bg-secondary border-secondary" href="${qwe}/MemberList.mem?pageSize=${pageSize}&pag=${i}">${i}</a></li></c:if>
-	      <c:if test="${i <= totPage && i != pag}"><li class="page-item"><a class="page-link text-secondary" href="${qwe}/MemberList.mem?pageSize=${pageSize}&pag=${i}">${i}</a></li></c:if>
+	      <c:if test="${i <= totPage && i == pag}"><li class="page-item active"><a class="page-link text-white bg-secondary border-secondary" href="${ctp}/MemberList.mem?pageSize=${pageSize}&pag=${i}">${i}</a></li></c:if>
+	      <c:if test="${i <= totPage && i != pag}"><li class="page-item"><a class="page-link text-secondary" href="${ctp}/MemberList.mem?pageSize=${pageSize}&pag=${i}">${i}</a></li></c:if>
 	    </c:forEach>
-	    <c:if test="${curBlock < lastBlock}"><li class="page-item"><a class="page-link text-secondary" href="${qwe}/MemberList.mem?pageSize=${pageSize}&pag=${(curBlock+1)*blockSize + 1}">다음블록</a></li></c:if>
-	    <c:if test="${pag < totPage}"><li class="page-item"><a class="page-link text-secondary" href="${qwe}/MemberList.mem?pageSize=${pageSize}&pag=${totPage}">마지막페이지</a></li></c:if>
+	    <c:if test="${curBlock < lastBlock}"><li class="page-item"><a class="page-link text-secondary" href="${ctp}/MemberList.mem?pageSize=${pageSize}&pag=${(curBlock+1)*blockSize + 1}">다음블록</a></li></c:if>
+	    <c:if test="${pag < totPage}"><li class="page-item"><a class="page-link text-secondary" href="${ctp}/MemberList.mem?pageSize=${pageSize}&pag=${totPage}">마지막페이지</a></li></c:if>
 	  </ul>
   </div>
 </div>

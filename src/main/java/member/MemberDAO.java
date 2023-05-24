@@ -40,7 +40,6 @@ public class MemberDAO {
 				vo.setUserInfor(rs.getString("userInfor"));
 				vo.setLevel(rs.getInt("level"));
 				vo.setSalt(rs.getString("salt"));
-
 			}
 		} catch (SQLException e) {
 			System.out.println("SQL 에러 : " + e.getMessage());
@@ -101,6 +100,7 @@ public class MemberDAO {
 			pstmt.setString(10, vo.getUserInfor());
 			pstmt.setString(11, vo.getSalt());
 			pstmt.executeUpdate();
+			res = 1;
 		} catch (SQLException e) {
 			System.out.println("SQL 에러 : " + e.getMessage());
 		} finally {

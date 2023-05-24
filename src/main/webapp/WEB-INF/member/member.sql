@@ -22,3 +22,22 @@ desc member;
 drop table member;
 
 select * from member;
+
+
+
+
+
+
+default,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+default,
+default,
+default,
+default,
+?

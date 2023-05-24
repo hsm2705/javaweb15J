@@ -12,14 +12,12 @@ public class GetConn {
 	private ResultSet rs = null;
 	
 	private String driver = "com.mysql.jdbc.Driver";
-	private String url = "jdbc:mysql://localhost:3306/javaweb";
-	private String user = "root";
+	private String url = "jdbc:mysql://localhost:3306/javaweb15";
+	private String user = "javaweb15";
 	private String password = "1234";
 	
 	private static GetConn instance = new GetConn();
 	
-	// GetConn객체를 싱클톤으로 사용하고자한다. 따라서 외부에서 생성할수 없도록 한다.
-	// public GetConn() {
 	private GetConn() {
 		try {
 			Class.forName(driver);

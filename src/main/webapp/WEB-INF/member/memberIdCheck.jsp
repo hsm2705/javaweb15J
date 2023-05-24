@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:set var="qwe" value="${pageContext.request.contextPath}"/>
+<c:set var="ctp" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +40,7 @@
   </c:if>
   <c:if test="${res != 1}">
     <h4><font color="blue"><b>${mid}</b></font>이미 사용중인 아이디입니다.</h4>
-    <form name="childForm" method="post" action="${qwe}/MemberIdCheck.mem">
+    <form name="childForm" method="post" action="${ctp}/MemberIdCheck.mem">
     	<p>
     	  <input type="text" name="mid"/>
     	  <input type="button" value="아이디재검색" onclick="idCheck()"/>

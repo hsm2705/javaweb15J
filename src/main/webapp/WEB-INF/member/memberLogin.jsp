@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:set var="qwe" value="${pageContext.request.contextPath}"/>
+<c:set var="ctp" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +17,7 @@
 	  <div class="modal-content p-4">
 		  <h2 class="text-center">회원 로그인</h2>
 		  <p class="text-center">(회원 아이디와 비밀번호를 입력해 주세요)</p>
-		  <form name="myform" method="post" action="${qwe}/MemberLoginOk.mem" class="was-validated">
+		  <form name="myform" method="post" action="${ctp}/MemberLoginOk.mem" class="was-validated">
 		    <div class="form-group">
 		      <label for="mid">회원 아이디</label>
 		      <input type="text" class="form-control" name="mid" id="mid" value="${mid}" placeholder="아이디를 입력하세요." required autofocus />
@@ -32,7 +32,7 @@
 		    </div>
 		    <div class="form-group text-center">
 		    	<button type="submit" class="btn btn-primary mr-1">로그인</button>
-		    	<button type="button" onclick="location.href='${qwe}/MemberJoin.mem';" class="btn btn-success">회원가입</button>
+		    	<button type="button" onclick="location.href='${ctp}/MemberJoin.mem';" class="btn btn-success">회원가입</button>
 		    </div>
 		    <div class="row text-center" style="font-size:12px">
 		      <span class="col"><input type="checkbox" name="idSave" checked />아이디 저장</span>
