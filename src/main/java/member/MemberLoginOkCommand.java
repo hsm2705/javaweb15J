@@ -42,16 +42,10 @@ public class MemberLoginOkCommand implements MemberInterface {
 			return;
 		}
 		
-		// 로그인 성공시에 처리할 내용들을 기술한다.(1.주요필드를 세션에 저장, 2.오늘방문횟수처리, 3. 총방문수와 방문포인트처리, 4.쿠키에 아이디저장유무)
-		// 1.
 		HttpSession session = request.getSession();
 		session.setAttribute("sMid", mid);
 		session.setAttribute("sNickName", vo.getNickName());
 		session.setAttribute("sLevel", vo.getLevel());
-		
-		Date now = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		String strNow = sdf.format(now);
 
 		Cookie cMid = new Cookie("cMid", mid);
 		if(idSave.equals("on")) {

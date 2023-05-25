@@ -6,15 +6,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>adminContent.jsp</title>
-  <jsp:include page="/include/bs4.jsp" />
+  <title>adminMain.jsp</title>
+	<frameset cols="130px, *">
+	  <frame src="${ctp}/AdminLeft.ad" name="adminLeft" frameborder="0"/>
+	  <frame src="${ctp}/AdminContent.ad" name="adminContent" frameborder="0"/>
+	</frameset>
 </head>
-<body>
-<p><br/></p>
-<div class="container">
-  <p>게시글 새글 : ???</p>
-  <p>신규등록회원 : ???</p>
-</div>
-<p><br/></p>
-</body>
+
 </html>
